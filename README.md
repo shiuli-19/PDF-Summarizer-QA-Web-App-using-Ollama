@@ -1,4 +1,4 @@
-#PDF-Summarizer-QA-Web-App-using-Ollama
+# PDF-Summarizer-QA-Web-App-using-Ollama
 
 ## 📌 Features
 
