@@ -1,3 +1,5 @@
+#PDF-Summarizer-QA-Web-App-using-Ollama
+
 ## 📌 Features
 
 - **📄 PDF Text Extraction:** Extracts raw text from PDFs using **PyMuPDF (fitz)**.
