@@ -1,4 +1,8 @@
-# PDF-Summarizer-QA-Web-App-using-Ollama
+# 📚 PDF-Summarizer-QA-Web-App-using-Ollama
+
+A Flask-based web application that lets you **upload PDFs**, **generate intelligent summaries**, and **ask context-aware questions** using local **Ollama** models with embeddings and LLMs. It uses **FAISS** for semantic search and supports scanned PDFs via **OCR** fallback.
+
+---
 
 ## 📌 Features
 
@@ -12,6 +16,8 @@
 - **📶 Ollama Connectivity Checks:** Confirms Ollama is up and models are available.
 - **🩺 System Status Reporting:** `/status` endpoint to check loaded PDFs, chunk count, and OCR/model health.
 
+---
+
 ## 🧪 Tech Stack
 
 - **Flask** – RESTful web backend
@@ -21,7 +27,32 @@
 - **Langchain/TextSplitters** – Chunking and overlap control
 - **Ollama** – Local embeddings + LLM responses
 
+---
+
 ## 🤖 Models Used
 
-- **nomic-embed-text** → Generates vector embeddings for chunks and queries
-- **llama3.2** → Generates answers and summaries from relevant document chunks
+- `nomic-embed-text` → Generates vector embeddings for chunks and queries
+- `llama3.2` → Generates answers and summaries from relevant document chunks
+
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Prerequisites
+
+- Python 3.8+
+- [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
+- [Ollama](https://ollama.com) running locally at `http://localhost:11434`
+  - Models:
+    - `ollama pull nomic-embed-text`
+    - `ollama pull llama3.2`
+
+---
+
+### 2️⃣ Installation
+
+Clone the repo:
+
+```bash
+git clone https://github.com/your-username/PDF-Summarizer-QA-Web-App-using-Ollama.git
+cd PDF-Summarizer-QA-Web-App-using-Ollama
