@@ -54,5 +54,5 @@ A Flask-based web application that lets you **upload PDFs**, **generate intellig
 Clone the repo:
 
 ```bash
-git clone https://github.com/your-username/PDF-Summarizer-QA-Web-App-using-Ollama.git
+git clone https://github.com/shiuli-19/PDF-Summarizer-QA-Web-App-using-Ollama.git
 cd PDF-Summarizer-QA-Web-App-using-Ollama
