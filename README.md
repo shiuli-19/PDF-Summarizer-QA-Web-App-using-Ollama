@@ -1,58 +1,128 @@
-# 📚 PDF-Summarizer-QA-Web-App-using-Ollama
+#  PDF-Summarizer-QA-Web-App-using-Ollama
 
 A Flask-based web application that lets you **upload PDFs**, **generate intelligent summaries**, and **ask context-aware questions** using local **Ollama** models with embeddings and LLMs. It uses **FAISS** for semantic search and supports scanned PDFs via **OCR** fallback.
 
 ---
 
-## 📌 Features
 
-- **📄 PDF Text Extraction:** Extracts raw text from PDFs using **PyMuPDF (fitz)**.
-- **🧾 OCR Fallback:** Uses **Tesseract OCR** for scanned PDFs when direct text extraction fails.
-- **🧠 Intelligent Chunking:** Breaks long documents into overlapping text chunks using `RecursiveCharacterTextSplitter` for better context.
-- **🔍 FAISS Indexing:** Stores vector embeddings of chunks in a **FAISS** index for fast similarity search.
-- **🧬 Ollama Embeddings:** Uses local Ollama models like `nomic-embed-text` to generate embeddings for both PDF chunks and user queries.
-- **💬 Context-Aware Q&A:** Answers user questions based on the top-k relevant chunks using Ollama LLMs (e.g., `llama3.2`) via prompt templating.
-- **📑 Multi-mode Summarization:** Supports structured, bullet, and executive summaries using the same RAG + LLM pipeline.
-- **📶 Ollama Connectivity Checks:** Confirms Ollama is up and models are available.
-- **🩺 System Status Reporting:** `/status` endpoint to check loaded PDFs, chunk count, and OCR/model health.
+## Features
 
----
+1. **PDF Text Extraction** - Extracts text from PDFs using PyMuPDF
+2. **OCR Fallback** - Uses Tesseract OCR for scanned PDFs
+3. **Intelligent Chunking** - Breaks documents into overlapping chunks
+4. **FAISS Indexing** - Vector embeddings for fast similarity search
+5. **Ollama Embeddings** - Local embedding generation with nomic-embed-text
+6. **Context-Aware Q&A** - Answers questions using llama3.2 LLM
+7. **Multi-mode Summarization** - Structured, bullet, and executive summaries
+8. **System Status Reporting** - Check loaded PDFs and system health
 
-## 🧪 Tech Stack
+## Tech Stack
 
-- **Flask** – RESTful web backend
-- **PyMuPDF** – PDF parsing
-- **PyTesseract** – OCR fallback for scanned PDFs
-- **FAISS** – Vector indexing for semantic retrieval
-- **Langchain/TextSplitters** – Chunking and overlap control
-- **Ollama** – Local embeddings + LLM responses
+- **Flask** - Web backend
+- **PyMuPDF** - PDF parsing
+- **PyTesseract** - OCR processing
+- **FAISS** - Vector indexing
+- **Langchain** - Text splitting and chunking
+- **Ollama** - Local LLM and embeddings
 
----
+## API Endpoints
 
-## 🤖 Models Used
+- `/status` - Check system status and loaded PDFs
+- Upload and process PDFs through the web interface
+- Ask questions about uploaded documents
+- Generate summaries in different formats
+
+##  Models Used
 
 - `nomic-embed-text` → Generates vector embeddings for chunks and queries
 - `llama3.2` → Generates answers and summaries from relevant document chunks
 
----
-
-## 🚀 Getting Started
-
-### 1️⃣ Prerequisites
+## Prerequisites
 
 - Python 3.8+
 - [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
-- [Ollama](https://ollama.com) running locally at `http://localhost:11434`
-  - Models:
-    - `ollama pull nomic-embed-text`
-    - `ollama pull llama3.2`
+- [Ollama](https://ollama.com) running locally at http://localhost:11434
 
----
-
-### 2️⃣ Installation
-
-Clone the repo:
+### Install Required Ollama Models
 
 ```bash
-git clone https://github.com/shiuli-19/PDF-Summarizer-QA-Web-App-using-Ollama.git
-cd PDF-Summarizer-QA-Web-App-using-Ollama
+ollama pull nomic-embed-text
+ollama pull llama3.2
+```
+
+## Installation Steps
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/shiuli-19/PDF-Summarizer-QA-Web-App-using-Ollama
+cd PDF_chatbot
+```
+
+### 2. Create Virtual Environment
+
+**On macOS/Linux:**
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+**On Windows:**
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Start Ollama Service
+
+Ensure Ollama is running in the background on port 11434.
+
+### 5. Run the Application
+
+```bash
+python run.py
+```
+
+The application will start on `http://localhost:5000`
+
+## Verification Steps
+
+1. **Start Ollama service**
+   ```bash
+   ollama serve
+   ```
+
+2. **Run the application**
+   ```bash
+   python run.py
+   ```
+
+3. **Open browser**
+   Navigate to `http://localhost:5000`
+
+4. **Test functionality**
+   - Upload a PDF file
+   - Ask questions about the document
+   - Generate summaries
+
+## Troubleshooting
+
+### Check Ollama Status
+```bash
+ollama list
+```
+
+### Verify Models are Downloaded
+```bash
+ollama show nomic-embed-text
+ollama show llama3.2
+```
+
+### Check Application Status
+Visit `http://localhost:5000/status` to see system health and loaded PDFs.
